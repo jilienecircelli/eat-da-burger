@@ -9,15 +9,15 @@ var connection = require("./connection.js");
 
 var orm = {
         selectAll: function() {
-            var queryString = "";
+            var queryString = "SELECT * FROM burgers";
             connection.query(queryString, [], function(err, result) {
                 if (err) throw err;
                 console.log(result);
             })
         },
         insertOne: function() {
-            var queryString = "";
-            connection.query(queryString, [], function(err, result) {
+            var queryString = "INSERT INTO burgers (burger_name, devoured) VALUES (?,?)";
+            connection.query(queryString, [burger_name, devoured], function(err, result) {
                 if (err) throw err;
                 console.log(result);
             })
