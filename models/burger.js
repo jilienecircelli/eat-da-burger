@@ -18,5 +18,4 @@ var burger = {
     }
 }
 
-module.exports = burger;©
-2020 GitHub, Inc.
+module.exports = burger;
