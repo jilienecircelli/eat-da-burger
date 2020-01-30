@@ -1,50 +1,57 @@
 <div class="row">
-    <div class="col-md-12">
-        {{!-- put some kind of image here --}}
-    </div>
-</div>
-<div class="row mx-auto">
-    <div class="col-md-12">
-        <h1>Eat Da Burger!</h1>
+    <div class="col-md-12 img-container">
+        <img src="/assets/img/burger.jpg" alt="Burger">
+        <hr>
+        <h1>Eat-Da-Burger</h1>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Burgers that are not eaten!</h2>
+    <div class="col-md-12">
+        <h2>Add a Burger</h2>
+        <form class="create-form">
+            <div class="form-group">
+                <label for="burg">Burger Name:</label>
+                <input type="text" id="burg" name="burger_name">
+                <button type="submit">Add Burger</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h2>Burgers that are not devoured!</h2>
         <ul>
             {{#each burgers}}
             {{#unless devoured}}
-            {{> burgers/eat-block devoured=true}}
+
+            <li>
+                {{burger_name}}
+
+                <button class="change-devoured" data-id="{{id}}" data-newburger="{{devoured}}">
+                    {{#if devoured}}DEVOURED!{{else}}DEVOURED!{{/if}}
+                </button>
+
+            </li>
             {{/unless}}
             {{/each}}
         </ul>
+
     </div>
-    <div class="col-md-4">
-        <h2>Add a Burger</h2>
-        <form class="create-form">
+    <div class="col-md-6">
+        <h2>Burgers that are devoured!</h2>
 
-            <div class="form-group">
-                <label for="burg">Burger Name:</label>
-                <input type="text" id="burg" name="burgerName">
-            </div>
-
-            {{!-- <div class="form-group">
-    <label for="sleepy">Devoured?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
-  </div> --}}
-
-            <button type="submit">Add Burger</button>
-        </form>
-    </div>
-    <div class="col-md-4">
-        <h2>Burgers that have been eaten!</h2>
-
-        <ul class="eaten">
+        <ul>
             {{#each burgers}}
             {{#if devoured}}
-            {{> burgers/eat-block devoured=false}}
+            <li>
+                {{burger_name}}
+
+
+                <button class="delete-burger" data-id="{{this.id}}">DELETE!</button>
+            </li>
             {{/if}}
             {{/each}}
         </ul>

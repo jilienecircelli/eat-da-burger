@@ -1,16 +1,6 @@
-body {
-    background-color: #F5DCAA;
-}
-
-img {
-    width: 20%;
-    height: auto;
-    justify-content: center;
-    margin: auto 0;
-}
-
-h1 {
-    text-align: center;
+#container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 li {
@@ -26,17 +16,31 @@ li {
 .create-update-form {
     padding: 5px;
     margin: 5px;
-    background: white;
+    background: aqua;
 }
 
 .form-group {
     margin-bottom: 5px;
+    text-align: center;
 }
 
-.eaten {
-    text-decoration: line-through;
+img {
+    width: 20%;
+    height: auto;
+    margin: auto 0;
 }
 
-.eaten>.change-devoured {
-    display: none;
+.img-container {
+    text-align: center;
+}
+
+col {
+    padding: 10px;
+}
+
+body {}
+
+h2,
+h1 {
+    text-align: center;
 }
